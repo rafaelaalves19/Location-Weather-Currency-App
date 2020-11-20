@@ -1,21 +1,70 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './src/Home.js';
+import Currency from './src/Currency.js';
+import Weather from './src/Weather.js';
+import Lastcities from './src/Lastcities.js';
+
+
+const Stack = createStackNavigator();
 
 export default function App() {
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    //NAVIGATION CONTAINER INCLUDING THE 4 SCREENS
+
+  <NavigationContainer>
+    <Stack.Navigator>
+
+
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerTitleStyle: { alignSelf: 'center'},
+        }}
+      />
+
+
+
+      <Stack.Screen
+        name="Currency"
+        component={Currency}
+        options={{
+          headerTitleStyle: { alignSelf: 'center'},
+        }}
+      />
+
+
+      <Stack.Screen
+        name="Weather"
+        component={Weather}
+        options={{
+          headerTitleStyle: { alignSelf: 'center'},
+        }}
+      />
+
+
+      <Stack.Screen
+        name="Last Cities"
+        component={Lastcities}
+        options={{
+          headerTitleStyle: { alignSelf: 'center'},
+        }}
+      />
+
+        </Stack.Navigator>
+      </NavigationContainer>
+
+
+
+
+
+
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
