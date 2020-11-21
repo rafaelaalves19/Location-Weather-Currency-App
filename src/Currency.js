@@ -10,7 +10,7 @@ const Currency = ({ route }) => {
   let [localCurrency, setLocalCurrency] = useState('');
   let [usd, setUsd] = useState('');
 
-  console.log(route);  //APAGO????
+
 
   //RETURN SECTION:
   return (
@@ -26,7 +26,8 @@ const Currency = ({ route }) => {
           marginBottom: 10, 
           borderColor: '#336699'
         }}/>
-      <Text style={styles.answers}>{localCurrency && localCurrency.toFixed(3) + geoLocation.results[0].annotations.currency.symbol}</Text>  {/*RETURNING THE LOCAL CURRENCY*/}
+      <Text style={styles.answers}>{localCurrency && localCurrency.toFixed(3) + geoLocation.results[0].annotations.currency.symbol}</Text>  
+      
 
       <Text style={styles.text}>Enter the amount of {iso_code} here:</Text>
       <TextInput onChangeText={(amount) => setUsd(amount / rates)} //BOX FOR USERS INPUT THE LOCAL CURRENCY AMOUNT AND CONVERT TO USD
@@ -37,7 +38,7 @@ const Currency = ({ route }) => {
           alignSelf: 'center', 
           borderColor: '#336699'
         }}/>
-      <Text style={styles.answers}>{usd && usd.toFixed(3) + '$'}</Text> {/*RETURNING THE AMOUNT OF USD*/}
+      <Text style={styles.answers}>{usd && usd.toFixed(3) + '$'}</Text> 
 
     </View>
   );

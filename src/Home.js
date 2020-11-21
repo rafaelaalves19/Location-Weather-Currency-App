@@ -16,7 +16,7 @@ const Home = ({navigation}) => {
   //SETTING THE ISO_CODE SYMBOL FROM OPENCAGE:
   let iso_code = geoLocation && geoLocation.results[0].annotations.currency.iso_code;
     
-    
+  
   //SETTING THE RATE TO GET THE CURRENT LOCAL CURRENCY:
   const rates = currency && currency.rates[Object.keys(currency.rates)[0]];
     
@@ -26,7 +26,7 @@ const Home = ({navigation}) => {
     (async () => {
       let { status } = await Location.requestPermissionsAsync();
       if (status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
+        setErrorMsg('Permission to access location was denied');i
       };
     
       let location = await Location.getCurrentPositionAsync({
@@ -74,27 +74,24 @@ const Home = ({navigation}) => {
       <Text style={styles.flag}>{geoLocation && geoLocation.results[0].annotations.flag}</Text>
 
       <Button 
-        mode="text" 
+        mode="contained" 
         icon="weather-partly-cloudy"
-        color='#999999'
         style={styles.button}
         onPress={() => navigation.navigate('Weather', weather)}>
         Check the weather
       </Button>
 
       <Button 
-        mode="text"
+        mode="contained"
         icon="currency-usd"
-        color='#999999'
         style={styles.button}
         onPress={() => navigation.navigate('Currency', {rates, iso_code, geoLocation})}>
         Currency exchange
       </Button>
 
       <Button 
-        mode="text"
+        mode="contained"
         icon="checkbox-marked-outline"
-        color='#999999'
         style={styles.button}
         onPress={() => navigation.navigate('Last Cities', geoLocation)}>
         Last Cities you've been
@@ -110,6 +107,7 @@ const styles = StyleSheet.create({
   button: {
     marginBottom: 10,
     backgroundColor: '#FFCC66',
+    fontWeight: 'bold',
   },
 
   topText: {

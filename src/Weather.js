@@ -5,9 +5,6 @@ const Weather = ({ route} ) => {
 
     const weather = route.params;
 
-    console.log(route); // APAGO???
-
-
     //RETURN SECTION:
     return (
         <View>
