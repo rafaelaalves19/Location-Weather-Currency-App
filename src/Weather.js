@@ -1,8 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native';
 
-const Weather = ({ route} ) => {
 
+//SETTING THE WEATHER ROUTE
+const Weather = ({ route} ) => {
     const weather = route.params;
 
     //RETURN SECTION:
