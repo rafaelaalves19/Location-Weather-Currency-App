@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
-
 
 
 const Currency = ({ route }) => {
@@ -11,33 +10,62 @@ const Currency = ({ route }) => {
   let [localCurrency, setLocalCurrency] = useState('');
   let [usd, setUsd] = useState('');
 
-  console.log(route);  
+  console.log(route);  //APAGO????
 
-    return (
-      <View>
+  //RETURN SECTION:
+  return (
+    <View>
       
-<Text>Enter the amount of $ here:</Text>
-      <TextInput onChangeText={(usdAmount) => setLocalCurrency(usdAmount * rates)} 
-      style={{
-        borderWidth:2, 
-        width: 80, 
-        height: 50, 
-        borderColor: 'blue'}}/>
-      <Text>{localCurrency && localCurrency.toFixed(3) + geoLocation.results[0].annotations.currency.symbol}</Text>
+      <Text style={styles.text}>Enter the amount of $ here:</Text>
+      <TextInput onChangeText={(usdAmount) => setLocalCurrency(usdAmount * rates)} //BOX FOR USERS INPUT THE USD AMOUNT AND CONVERT TO THE LOCAL CURRANCY  
+        style={{
+          borderWidth:4, 
+          width: 95, 
+          height: 50,
+          alignSelf: 'center',
+          marginBottom: 10, 
+          borderColor: '#336699'
+        }}/>
+      <Text style={styles.answers}>{localCurrency && localCurrency.toFixed(3) + geoLocation.results[0].annotations.currency.symbol}</Text>  {/*RETURNING THE LOCAL CURRENCY*/}
 
-      <Text>Enter the amount of {iso_code} here:</Text>
-      <TextInput onChangeText={(amount) => setUsd(amount / rates)} 
-      style={{
-        borderWidth:2, 
-        width: 80, 
-        height: 50, 
-        borderColor: 'blue'}}/>
-      <Text>{usd && usd.toFixed(3) + '$'}</Text>
+      <Text style={styles.text}>Enter the amount of {iso_code} here:</Text>
+      <TextInput onChangeText={(amount) => setUsd(amount / rates)} //BOX FOR USERS INPUT THE LOCAL CURRENCY AMOUNT AND CONVERT TO USD
+        style={{
+          borderWidth:4, 
+          width: 95, 
+          height: 50,
+          alignSelf: 'center', 
+          borderColor: '#336699'
+        }}/>
+      <Text style={styles.answers}>{usd && usd.toFixed(3) + '$'}</Text> {/*RETURNING THE AMOUNT OF USD*/}
 
-        </View>
+    </View>
+  );
+};
 
-       
-    )
-}
+
+//STYLE SECTION:
+const styles = StyleSheet.create({
+   
+  text: {
+    fontSize: 25,
+    alignSelf: 'center',
+    marginBottom: 10,
+    marginTop: 20,
+    fontWeight: 'bold',
+    color: '#FFCC00',
+  },
+
+  answers: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    marginBottom: 10,
+    marginTop: 10,
+    color: '#336699',
+    marginBottom: 60,  
+  },
+});
+
 
 export default Currency

@@ -12,59 +12,49 @@ const Stack = createStackNavigator();
 
 export default function App() {
 
-
   return (
-    //NAVIGATION CONTAINER INCLUDING THE 4 SCREENS
+    
+    //NAVIGATION CONTAINER INCLUDING THE 4 SCREENS:
+    <NavigationContainer>
 
-  <NavigationContainer>
-    <Stack.Navigator>
+      <Stack.Navigator>
 
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerTitleStyle: { alignSelf: 'center'},
+          }}
+        />
 
-      <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{
-          headerTitleStyle: { alignSelf: 'center'},
-        }}
-      />
+        <Stack.Screen
+          name="Currency"
+          component={Currency}
+          options={{
+            headerTitleStyle: { alignSelf: 'center'},
+          }}
+        />
 
+        <Stack.Screen
+          name="Weather"
+          component={Weather}
+          options={{
+            headerTitleStyle: { alignSelf: 'center'},
+          }}
+        />
 
+        <Stack.Screen
+          name="Last Cities"
+          component={Lastcities}
+          options={{
+            headerTitleStyle: { alignSelf: 'center'},
+          }}
+        />
 
-      <Stack.Screen
-        name="Currency"
-        component={Currency}
-        options={{
-          headerTitleStyle: { alignSelf: 'center'},
-        }}
-      />
-
-
-      <Stack.Screen
-        name="Weather"
-        component={Weather}
-        options={{
-          headerTitleStyle: { alignSelf: 'center'},
-        }}
-      />
-
-
-      <Stack.Screen
-        name="Last Cities"
-        component={Lastcities}
-        options={{
-          headerTitleStyle: { alignSelf: 'center'},
-        }}
-      />
-
-        </Stack.Navigator>
-      </NavigationContainer>
-
-
-
-
-
+      </Stack.Navigator>
+    </NavigationContainer>
 
   );
-}
+};
 
 
